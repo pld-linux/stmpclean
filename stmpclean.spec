@@ -6,7 +6,7 @@ Release:	1
 License:	BSD
 Group:		Applications/System
 URL:		http://www.internet2.edu/~shalunov/stmpclean/
-Source0:	http://www.internet2.edu/~shalunov/stmpclean/%name-%version.tar.gz
+Source0:	http://www.internet2.edu/~shalunov/stmpclean/%{name}-%{version}.tar.gz
 Source1:	%{name}.cron
 Patch0:		%{name}-Owl.patch
 PreReq:		/etc/cron.daily
