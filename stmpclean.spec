@@ -5,11 +5,11 @@ Version:	0.3
 Release:	1
 License:	BSD
 Group:		Applications/System
-URL:		http://www.internet2.edu/~shalunov/stmpclean/
 Source0:	http://www.internet2.edu/~shalunov/stmpclean/%{name}-%{version}.tar.gz
 Source1:	%{name}.cron
 Patch0:		%{name}-Owl.patch
-PreReq:		/etc/cron.daily
+URL:		http://www.internet2.edu/~shalunov/stmpclean/
+PreReq:		crondaemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,21 +27,26 @@ zbieraj± siê niepotrzebne pliki, jak /tmp.
 %patch0 -p1
 
 %build
-%{__make} CFLAGS="%{rpmcflags} -Wall" stmpclean
+%{__make} stmpclean\
+	CFLAGS="%{rpmcflags} -Wall"
+
+%install
+rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/etc/cron.daily
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	SBINDIR=%{_sbindir} \
+	MANDIR=%{_mandir}
+
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/cron.daily/stmpclean
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%install
-rm -rf $RPM_BUILD_ROOT
-%{__make} install DESTDIR=$RPM_BUILD_ROOT SBINDIR=%_sbindir MANDIR=%_mandir
-cd $RPM_BUILD_ROOT
-install -d etc/cron.daily
-install -m 700 $RPM_SOURCE_DIR/stmpclean.cron etc/cron.daily/stmpclean
-
 %files
 %defattr(644,root,root,755)
 %doc README FAQ
-%_sbindir/%{name}
-%_mandir/man8/%{name}*
-/etc/cron.daily/stmpclean
+%attr(755,root,root) %{_sbindir}/%{name}
+%attr(755,root,root) %config(noreplace) /etc/cron.daily/stmpclean
+%{_mandir}/man8/*.8*
