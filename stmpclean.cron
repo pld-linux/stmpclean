@@ -1,0 +1,8 @@
+#!/bin/sh
+# $Id$
+
+/usr/sbin/stmpclean -t 10d /tmp /var/tmp
+
+if [ -d /var/catman ]; then
+	/usr/sbin/stmpclean -t 10d /var/catman/{,X11R6/,local/}cat[123456789n]
+fi
