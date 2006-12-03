@@ -9,7 +9,7 @@ Source0:	http://www.internet2.edu/~shalunov/stmpclean/%{name}-%{version}.tar.gz
 Source1:	%{name}.cron
 Patch0:		%{name}-Owl.patch
 URL:		http://www.internet2.edu/~shalunov/stmpclean/
-PreReq:		crondaemon
+Requires:	crondaemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
