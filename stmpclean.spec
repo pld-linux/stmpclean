@@ -1,5 +1,5 @@
 Summary:	A safe temporary directory cleaner
-Summary(pl.UTF-8):   Bezpieczny program porządkujący katalogi z plikami tymczasowymi
+Summary(pl.UTF-8):	Bezpieczny program porządkujący katalogi z plikami tymczasowymi
 Name:		stmpclean
 Version:	0.3
 Release:	1
