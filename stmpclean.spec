@@ -1,5 +1,5 @@
 Summary:	A safe temporary directory cleaner
-Summary(pl):	Bezpieczny program porz±dkuj±cy katalogi z plikami tymczasowymi
+Summary(pl.UTF-8):   Bezpieczny program porzÄ…dkujÄ…cy katalogi z plikami tymczasowymi
 Name:		stmpclean
 Version:	0.3
 Release:	1
@@ -17,10 +17,10 @@ The stmpclean utility removes old files (and old empty directories)
 from the specified directory. Its typical use is to clean directories
 such as /tmp where old files tend to accumulate.
 
-%description -l pl
+%description -l pl.UTF-8
 Program stmpclean usuwa stare pliki i puste podkatalogi z podanego
-katalogu.  Zwykle u¿ywa siê go do porz±dkowania katalogów, w których
-zbieraj± siê niepotrzebne pliki, jak /tmp.
+katalogu.  Zwykle uÅ¼ywa siÄ™ go do porzÄ…dkowania katalogÃ³w, w ktÃ³rych
+zbierajÄ… siÄ™ niepotrzebne pliki, jak /tmp.
 
 %prep
 %setup -q
