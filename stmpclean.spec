@@ -24,7 +24,7 @@ zbierają się niepotrzebne pliki, jak /tmp.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__make} stmpclean\
